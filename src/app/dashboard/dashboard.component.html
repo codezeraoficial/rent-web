@@ -1,0 +1,10 @@
+<div class="dashboard__container">
+  <h1>Veiculos disponíveis</h1>
+    <div class="dashboard__container--content">
+      <div
+        *ngFor="let vehicle of vehicles"
+      >
+      <app-card [vehicle]="vehicle"></app-card>
+    </div>
+  </div>
+</div>
