@@ -1,0 +1,24 @@
+<div *ngIf="vehicle">
+  <mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title>{{vehicle.model}}</mat-card-title>
+      <mat-card-subtitle>{{vehicle.brand}}</mat-card-subtitle>
+    </mat-card-header>
+    <img
+      mat-card-image
+      src="{{vehicle.imageUrl}}"
+      onerror="this.src='https://www.carmoveiculos.com.br/wp-content/uploads/2016/12/renault-sandero-stepway-b52-ph1-range.jpg.ximg_.l_12_m.smart_.jpg'"
+      alt="Photo of a Shiba Inu"
+    />
+    <mat-card-content>
+      <strong>Ano: <span>{{vehicle.year}}</span></strong>
+      <br>
+      <strong>Placa: <span>{{vehicle.licensePlate}}</span></strong>
+      <br>
+      <strong>Renavam: <span>{{vehicle.renavam}}</span></strong>
+      <br>
+      <strong>Chassi: <span>{{vehicle.chassis}}</span></strong>
+    </mat-card-content>
+
+  </mat-card>
+</div>

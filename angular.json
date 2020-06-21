@@ -28,6 +28,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.sass"
             ],
             "scripts": []
@@ -92,6 +93,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.sass"
             ],
             "scripts": []
@@ -123,6 +125,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "web"
+    }
+  },
+  "defaultProject": "web",
+  "cli": {
+    "analytics": "c67fb2d1-c32f-4035-97ce-17ce66f42d7d"
+  }
 }
