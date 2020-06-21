@@ -1,27 +1,80 @@
-# Web
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.9.
+<h1 align="center">
+    <img alt="Angular" title="#NextLevelWeek" src="https://miro.medium.com/max/3440/1*QfmtMDpR23DkpSBOEB50FA.png" width="250px" />
+</h1>
 
-## Development server
+<h4 align="center"> 
+	 GoRentWeb 🚀 Done! 
+</h4>
+<p align="center">
+  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/codezeraoficial/GoRentWeb?color=%2304D361">
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+  <img alt="Repository size" src="https://img.shields.io/github/repo-size/codezeraoficial/GoRentWeb">
+	
+  <a href="https://www.linkedin.com/in/leonardo-rviana/">
+    <img alt="Made by LeonardoViana" src="https://img.shields.io/badge/made%20by-LeonardoViana-%2304D361">
+  </a>
 
-## Code scaffolding
+  <a href="https://github.com/codezeraoficial/GoRentWeb/commits/master">
+    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/codezeraoficial/GoRentWeb">
+  </a>
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+  <img alt="License" src="https://img.shields.io/badge/license-MIT-brightgreen">
+   <a href="https://github.com/codezeraoficial/GoRentWeb/stargazers">
+    <img alt="Stargazers" src="https://img.shields.io/github/stars/codezeraoficial/GoRentWeb?style=social">
+  </a>
+</p>
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+## :rocket: Technologies
 
-## Running unit tests
+This project was developed with the following technologies:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- [Angular][angular]
+- [TypeScript][typescript]
 
-## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+## :information_source: How To Use
 
-## Further help
+To clone and run this application, you'll need [Git](https://git-scm.com), [Node.js][nodejs] + [Yarn][yarn] installed on your computer.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+From your command line:
+
+### Install API 
+
+```bash
+
+# Go into the folder
+$ cd infosistemas
+
+# Clone this repository
+$ git clone https://github.com/codezeraoficial/GoRentWeb
+
+# Go into the repository
+$ cd infosistemas/web
+
+# Install dependencies
+$ yarn install or npm install
+
+# Start server
+$ ng serve or ng serve --open
+
+```
+
+## :battery: How does it work? 
+
+
+1 - This application has the heroku url, for local tests the url in the "eviroment" file in the "enviroments" folder must be changed.
+
+Port: http://localhost:3333/
+
+
+
+
+#### If you performed each step, the possibility of working perfectly is 100%. If everything went well, you were able to interact with client, that means everything went well.
+
+[nodejs]: https://nodejs.org/
+[angular]: https://angular.io/
+[typescript]: https://www.typescriptlang.org/
+[yarn]: https://yarnpkg.com/
+[GoRentServer]: https://github.com/codezeraoficial/GoRentServer

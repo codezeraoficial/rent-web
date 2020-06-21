@@ -4,6 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Vehicle } from './interfaces/vehicle';
 import { catchError, map, tap } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -11,7 +12,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 export class VehicleService {
   constructor(private http: HttpClient) {}
 
-  private baseUrl = 'https://go-rent.herokuapp.com/vehicles';
+  private baseUrl = environment.BASE_URL;
 
   private log(message: string) {
     console.log(message);
