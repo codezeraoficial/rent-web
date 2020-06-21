@@ -1,6 +1,6 @@
 
 <h1 align="center">
-    <img alt="Angular" title="#NextLevelWeek" src="https://miro.medium.com/max/3440/1*QfmtMDpR23DkpSBOEB50FA.png" width="250px" />
+    <img alt="Angular" title="#NextLevelWeek" src="https://miro.medium.com/max/3440/1*QfmtMDpR23DkpSBOEB50FA.png" width="650px" />
 </h1>
 
 <h4 align="center"> 
