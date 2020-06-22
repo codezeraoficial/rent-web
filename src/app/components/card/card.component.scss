@@ -13,20 +13,6 @@ $color-gray: #6B6B6B;
   height: 500px;
 }
 
-.card-actions{
-  @include flexBox;
-}
-
-.card-actions button{  
-  width: 120px;
-  height: 35px;
-  background: $color-primary;
-  color: $color-white;
-  font-size: 14px;
-  border: none;
-  border-radius: 5px;
-}
-
 strong{
   font-family: Poppins;
   font-style: normal;
