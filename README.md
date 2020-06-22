@@ -57,7 +57,7 @@ $ cd infosistemas/web
 $ yarn install or npm install
 
 # Start server
-$ ng serve or ng serve --open
+$ npm start or yarn start
 
 ```
 
