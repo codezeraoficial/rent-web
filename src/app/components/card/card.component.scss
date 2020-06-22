@@ -1,6 +1,30 @@
+$color-primary: #e8da3e;
+$color-white: #FFF;
+$color-gray: #6B6B6B;
+
+@mixin flexBox() {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
 .example-card {
-  max-width: 500px;
+  max-width: 350px;
   height: 500px;
+}
+
+.card-actions{
+  @include flexBox;
+}
+
+.card-actions button{  
+  width: 120px;
+  height: 35px;
+  background: $color-primary;
+  color: $color-white;
+  font-size: 14px;
+  border: none;
+  border-radius: 5px;
 }
 
 strong{
@@ -8,8 +32,12 @@ strong{
   font-style: normal;
   font-weight: 500;
   font-size: 14px;
-  line-height: 45px;
+  line-height: 30px;
   letter-spacing: 0.15px;
 
   color: #6B6B6B;
+}
+
+img{
+  height: 200px;
 }
