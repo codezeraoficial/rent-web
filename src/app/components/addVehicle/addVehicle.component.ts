@@ -12,12 +12,19 @@ import { Vehicle } from 'src/app/interfaces/vehicle';
 })
 export class ModalAddOrEditVehicle implements OnInit {
   @Input() vehicle: Vehicle;
+  isVehicle: boolean;
   constructor(private vehicleService: VehicleService, public dialog: MatDialog, private eventEmitterService: EventEmitterService, @Inject(MAT_DIALOG_DATA) public data: Vehicle) {
     this.vehicle = data
   }
 
   ngOnInit() {
-    if(!this.vehicle) this.vehicle = {} as Vehicle
+    if(!this.vehicle){
+      this.vehicle = {} as Vehicle
+      this.isVehicle = false
+    } else{
+      this.isVehicle = true
+
+    }
   }
 
 

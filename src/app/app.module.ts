@@ -17,6 +17,7 @@ import {MatInputModule} from '@angular/material/input';
 import { ModalAddOrEditVehicle } from './components/addVehicle/addVehicle.component';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { EventEmitterService } from './event/emitter/index.service';
+import { LoadingComponent } from './components/loading/loading.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,6 +25,7 @@ import { EventEmitterService } from './event/emitter/index.service';
     HeaderComponent,
     CardComponent,
     ModalAddOrEditVehicle,
+    LoadingComponent,
   ],
   imports: [
     BrowserModule,

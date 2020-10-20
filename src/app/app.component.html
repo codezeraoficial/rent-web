@@ -1,6 +1,6 @@
 <app-header></app-header>
 <nav>
   <a routerLink="/dashboard">Dashboard</a>
-  <a routerLink="/heroes">Heroes</a>
+  <app-loading *ngIf="isLoading"></app-loading>
 </nav>
 <router-outlet></router-outlet>

@@ -1,0 +1,64 @@
+$color-primary: #e8da3e;
+$color-white: #FFF;
+
+
+@mixin flexBox() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loading_container {
+  @include flexBox;
+  margin-top: 60px;
+
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background-color: #e2dfdf;
+  z-index: 999999;
+
+  div {
+    @include flexBox;
+    margin: auto;
+    width: 150px;
+    height: 150px;
+    position: relative;
+
+    span {
+      position: absolute;
+      top: 70px;
+      left: 75px;
+      transform: translate(-50%, -50%);
+
+      background: transparent;
+      border-top: 3px solid transparent;
+      border-left: 3px solid $color-primary;
+      border-bottom: 3px solid transparent;
+      border-right: 3px solid transparent;
+      border-radius: 50%;
+
+      width: inherit;
+      height: inherit;
+
+      transform-origin: center center;
+      animation: rotation 1s linear infinite;
+    }
+
+    strong {
+      color: #4e4d4d;
+      font-size: 20px;
+    }
+  }
+
+
+}
+
+@keyframes rotation {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}

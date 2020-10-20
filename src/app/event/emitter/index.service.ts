@@ -11,6 +11,7 @@ export class EventEmitterService {
     
   invokeGetVehicles = new EventEmitter();    
   invokeSetVehicle = new EventEmitter<Vehicle>();    
+  invokeSetLoading = new EventEmitter<boolean>();    
   subsVar: Subscription;    
     
     
@@ -19,5 +20,8 @@ export class EventEmitterService {
   }    
   onSetVehicle(vehicle: Vehicle) {  
     this.invokeSetVehicle.subscribe(vehicle);    
+  }    
+  onSetLoading() {  
+    this.invokeSetLoading.emit();    
   }    
 } 

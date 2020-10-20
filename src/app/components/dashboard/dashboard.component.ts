@@ -12,22 +12,23 @@ import { EventEmitterService } from 'src/app/event/emitter/index.service';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-  constructor(private vehicleService: VehicleService, public dialog: MatDialog, private eventEmitterService: EventEmitterService  ) { }
+  constructor(private vehicleService: VehicleService, public dialog: MatDialog, private eventEmitterService: EventEmitterService) { }
 
-   vehicles: Vehicle[] = [];
+  vehicles: Vehicle[] = [];
 
-   ngOnInit() {
-    if (this.eventEmitterService.subsVar==undefined) {    
-      this.eventEmitterService.subsVar = this.eventEmitterService.    
-      invokeGetVehicles.subscribe((name:string) => {    
-        this.getVehicles();    
-      });    
+  ngOnInit() {
+    this.eventEmitterService.subsVar = undefined;
+    if (this.eventEmitterService.subsVar == undefined) {
+      this.eventEmitterService.subsVar = this.eventEmitterService.
+        invokeGetVehicles.subscribe((name: string) => {
+          this.getVehicles();
+        });
     }
     this.getVehicles();
   }
 
-@Input()
-color: ThemePalette
+  @Input()
+  color: ThemePalette
 
   openDialog() {
     const dialogRef = this.dialog.open(ModalAddOrEditVehicle);
@@ -35,12 +36,14 @@ color: ThemePalette
   }
 
   getVehicles(): void {
+    this.eventEmitterService.onSetLoading();
     this.vehicleService.getVehicles()
-      .subscribe(vehicles => this.vehicles = vehicles);
-  }
+      .subscribe((vehicles) => {
+        setTimeout(() => {
+          this.vehicles = vehicles;
+          this.eventEmitterService.onSetLoading();
+        }, 1000);
+      });
 
-  deleteVehicle(): void {
-    this.vehicleService.getVehicles()
-      .subscribe(vehicles => this.vehicles = vehicles);
   }
 }
