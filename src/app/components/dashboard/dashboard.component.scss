@@ -25,8 +25,21 @@ $color-grey: #efefef;
     margin-top: 50px;
     margin-bottom: 10px;
     width: 85%;
+
+    margin-top: 200px;
+    position: relative;
+
+    
+    button{
+      position: fixed;
+      bottom: 10%;
+      right: 10%;
+      z-index: 3;
+    }
   }
+ 
 }
+
 
 *,
 *:after,

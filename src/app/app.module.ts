@@ -9,14 +9,21 @@ import { AppRoutingModule } from './app-routing.module';
 import { HeaderComponent } from './components/header/header.component';
 import { CardComponent } from './components/card/card.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatCardModule} from '@angular/material/card';
-
+import { MatCardModule } from '@angular/material/card';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatIconModule } from '@angular/material/icon';
+import {MatButtonModule} from '@angular/material/button';
+import {MatInputModule} from '@angular/material/input';
+import { ModalAddOrEditVehicle } from './components/addVehicle/addVehicle.component';
+import {MatGridListModule} from '@angular/material/grid-list';
+import { EventEmitterService } from './event/emitter/index.service';
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
     HeaderComponent,
     CardComponent,
+    ModalAddOrEditVehicle,
   ],
   imports: [
     BrowserModule,
@@ -24,9 +31,16 @@ import {MatCardModule} from '@angular/material/card';
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatCardModule
+    MatCardModule,
+    MatDialogModule,
+    MatIconModule,
+    MatButtonModule,
+    MatInputModule,
+    MatGridListModule
   ],
-  providers: [],
+  providers: [
+    EventEmitterService
+  ],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

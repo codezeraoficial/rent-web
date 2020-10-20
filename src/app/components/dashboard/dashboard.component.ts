@@ -1,6 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Vehicle } from '../../interfaces/vehicle';
 import { VehicleService } from '../../app.service';
+import { ModalAddOrEditVehicle } from '../addVehicle/addVehicle.component';
+import { MatDialog } from '@angular/material/dialog';
+import { ThemePalette } from '@angular/material/core';
+import { EventEmitterService } from 'src/app/event/emitter/index.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -8,13 +12,26 @@ import { VehicleService } from '../../app.service';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-  constructor(private vehicleService: VehicleService) { }
+  constructor(private vehicleService: VehicleService, public dialog: MatDialog, private eventEmitterService: EventEmitterService  ) { }
 
-  vehicles: Vehicle[] = [];
+   vehicles: Vehicle[] = [];
 
    ngOnInit() {
+    if (this.eventEmitterService.subsVar==undefined) {    
+      this.eventEmitterService.subsVar = this.eventEmitterService.    
+      invokeGetVehicles.subscribe((name:string) => {    
+        this.getVehicles();    
+      });    
+    }
     this.getVehicles();
-    console.log(this.vehicles);
+  }
+
+@Input()
+color: ThemePalette
+
+  openDialog() {
+    const dialogRef = this.dialog.open(ModalAddOrEditVehicle);
+    dialogRef.afterClosed().subscribe();
   }
 
   getVehicles(): void {
@@ -22,4 +39,8 @@ export class DashboardComponent implements OnInit {
       .subscribe(vehicles => this.vehicles = vehicles);
   }
 
+  deleteVehicle(): void {
+    this.vehicleService.getVehicles()
+      .subscribe(vehicles => this.vehicles = vehicles);
+  }
 }

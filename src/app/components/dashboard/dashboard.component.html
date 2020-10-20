@@ -1,6 +1,8 @@
 <div class="dashboard__container">
-  <h1>Veiculos disponíveis</h1>
-    <div class="dashboard__container--content">
+  <div class="dashboard__container--content">
+      <button mat-fab color="warn" aria-label="Add vehicle" mat-button (click)="openDialog()" class="dashboard__container--button">
+        <mat-icon>add</mat-icon>
+      </button>
       <div
         *ngFor="let vehicle of vehicles"
       >

@@ -10,7 +10,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root',
 })
 export class VehicleService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   private baseUrl = environment.BASE_URL;
 
@@ -55,15 +55,12 @@ export class VehicleService {
   }
 
   /** POST: add a new Vehicle to the server */
-  addVehicle(vehicle: Vehicle): Observable<Vehicle> {
-    return this.http
-      .post<Vehicle>(this.baseUrl, vehicle, this.httpOptions)
-      .pipe(
-        tap((newVehicle: Vehicle) =>
-          this.log(`added vehicle w/ id=${newVehicle._id}`)
-        ),
-        catchError(this.handleError<Vehicle>('addVehicle'))
-      );
+  async addVehicle(vehicle: Vehicle): Promise<Vehicle> {
+    try {
+      return await this.http.post<Vehicle>(this.baseUrl, vehicle, this.httpOptions).toPromise();
+    } catch (error) {
+
+    }
   }
 
   deleteVehicle(vehicle: Vehicle | number): Observable<Vehicle> {

@@ -1,0 +1,11 @@
+$color-grey: #efefef;
+
+@mixin flexBox() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.full-width-field {
+  width: 100%;
+}
