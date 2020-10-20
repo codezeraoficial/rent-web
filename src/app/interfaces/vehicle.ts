@@ -1,5 +1,5 @@
 export interface Vehicle{
-  _id: String,
+  _id: string,
   error: string;
   imageUrl: string;
   chassis: String,

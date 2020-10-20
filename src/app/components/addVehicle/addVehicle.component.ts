@@ -1,5 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { Component, Inject, Input, OnInit } from '@angular/core';
+import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { VehicleService } from 'src/app/app.service';
 import { EventEmitterService } from 'src/app/event/emitter/index.service';
 import { Vehicle } from 'src/app/interfaces/vehicle';
@@ -10,10 +10,16 @@ import { Vehicle } from 'src/app/interfaces/vehicle';
   templateUrl: './addVehicle.component.html',
   styleUrls: ['./addVehicle.component.scss']
 })
-export class ModalAddOrEditVehicle  {
-  constructor(private vehicleService: VehicleService, public dialog: MatDialog, private eventEmitterService: EventEmitterService ) { }
+export class ModalAddOrEditVehicle implements OnInit {
+  @Input() vehicle: Vehicle;
+  constructor(private vehicleService: VehicleService, public dialog: MatDialog, private eventEmitterService: EventEmitterService, @Inject(MAT_DIALOG_DATA) public data: Vehicle) {
+    this.vehicle = data
+  }
 
-  vehicle: Vehicle = {} as Vehicle;
+  ngOnInit() {
+    if(!this.vehicle) this.vehicle = {} as Vehicle
+  }
+
 
   isEmpty(obj) {
     for (var key in obj) {
@@ -24,14 +30,24 @@ export class ModalAddOrEditVehicle  {
   }
 
   async saveVehicle() {
-    if (this.isEmpty(this.vehicle)){
+    if (this.isEmpty(this.vehicle)) {
       return;
     }
-   this.vehicleService.addVehicle(this.vehicle).then(resolve =>{
-     if(resolve){
-       this.eventEmitterService.onGetVehiclesDashBoard();
-     }
-   }).catch(error=>{})    
+    
+    if(!this.vehicle._id){
+      this.vehicleService.addVehicle(this.vehicle).then(resolve => {
+        if (resolve) {
+          this.eventEmitterService.onGetVehiclesDashBoard();
+        }
+      }).catch(error => { })
+    }else{
+      this.vehicleService.updateVehicle(this.vehicle).then(resolve => {
+        if (resolve) {
+          this.eventEmitterService.onGetVehiclesDashBoard();
+        }
+      }).catch(error => { })
+    }
+    
   }
 
   @Input()

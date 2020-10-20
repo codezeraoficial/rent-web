@@ -13,7 +13,17 @@ $color-gray: #6B6B6B;
   height: 500px;
 }
 
-strong{
+.cardActions {
+  @include flexBox;
+  flex-direction: row;
+
+  width: 50%;
+  .buttonEdit {
+    background-color: $color-primary;
+  }
+}
+
+strong {
   font-family: Poppins;
   font-style: normal;
   font-weight: 500;
@@ -24,6 +34,6 @@ strong{
   color: #6B6B6B;
 }
 
-img{
+img {
   height: 200px;
 }

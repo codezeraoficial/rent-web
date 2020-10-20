@@ -47,12 +47,7 @@ export class VehicleService {
     );
   }
 
-  updateVehicle(vehicle: Vehicle): Observable<any> {
-    return this.http.put(this.baseUrl, vehicle, this.httpOptions).pipe(
-      tap((_) => this.log(`updated Vehicle id=${vehicle._id}`)),
-      catchError(this.handleError<any>('updateVehicle'))
-    );
-  }
+
 
   /** POST: add a new Vehicle to the server */
   async addVehicle(vehicle: Vehicle): Promise<Vehicle> {
@@ -63,14 +58,22 @@ export class VehicleService {
     }
   }
 
-  deleteVehicle(vehicle: Vehicle | number): Observable<Vehicle> {
-    const id = typeof vehicle === 'number' ? vehicle : vehicle._id;
-    const url = `${this.baseUrl}/${id}`;
+  async updateVehicle(vehicle: Vehicle): Promise<Vehicle> {
+    const url = `${this.baseUrl}/${vehicle._id}`;
+    try {
+      return await this.http.put<Vehicle>(url, vehicle, this.httpOptions).toPromise();
+      
+    } catch (error) {
+      
+    }
+  }
 
-    return this.http.delete<Vehicle>(url, this.httpOptions).pipe(
-      tap((_) => this.log(`deleted vehicle id=${id}`)),
-      catchError(this.handleError<Vehicle>('deleteVehicle'))
-    );
+  async deleteVehicle(id: string): Promise<string> {
+    const url = `${this.baseUrl}/${id}`;
+    try {
+      return await this.http.delete<string>(url, this.httpOptions).toPromise();
+    } catch (error) {
+    }   
   }
 
   private handleError<T>(operation = 'operation', result?: T) {
