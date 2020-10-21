@@ -1,4 +1,5 @@
 import { Component, Inject, Input, OnInit } from '@angular/core';
+import { ThemePalette } from '@angular/material/core';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { VehicleService } from 'src/app/app.service';
 import { EventEmitterService } from 'src/app/event/emitter/index.service';
@@ -12,6 +13,8 @@ import { Vehicle } from 'src/app/interfaces/vehicle';
 })
 export class ModalAddOrEditVehicle implements OnInit {
   @Input() vehicle: Vehicle;
+  @Input()
+  color: ThemePalette
   isVehicle: boolean;
   constructor(private vehicleService: VehicleService, public dialog: MatDialog, private eventEmitterService: EventEmitterService, @Inject(MAT_DIALOG_DATA) public data: Vehicle) {
     this.vehicle = data
